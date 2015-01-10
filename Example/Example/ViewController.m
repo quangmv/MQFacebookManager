@@ -23,8 +23,6 @@
     [FacebookManager requestForMeSuccess:^(id result) {
         NSLog(@"%@",result);
     }];
-    
-    [FacebookManager postVideo:data Title:@"title" andDescription:@"description"];
 }
 
 - (void)didReceiveMemoryWarning {
