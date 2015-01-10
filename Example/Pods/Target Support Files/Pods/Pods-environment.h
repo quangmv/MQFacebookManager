@@ -18,9 +18,3 @@
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 22
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 0
 
-// MQFacebookManager
-#define COCOAPODS_POD_AVAILABLE_MQFacebookManager
-#define COCOAPODS_VERSION_MAJOR_MQFacebookManager 1
-#define COCOAPODS_VERSION_MINOR_MQFacebookManager 0
-#define COCOAPODS_VERSION_PATCH_MQFacebookManager 1
-

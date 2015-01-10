@@ -1,2 +1,0 @@
-# MQFacebookManager
-Cocoapods 

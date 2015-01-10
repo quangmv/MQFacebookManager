@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <FacebookManager.h>
+#import "FacebookManager.h"
 
 @interface ViewController ()
 
@@ -17,16 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //Request for me
-    
-    
 }
 
 - (IBAction)meButtonTapped:(id)sender {
     [FacebookManager requestForMeSuccess:^(id result) {
         NSLog(@"%@",result);
     }];
+    
+    [FacebookManager postVideo:data Title:@"title" andDescription:@"description"];
 }
 
 - (void)didReceiveMemoryWarning {
