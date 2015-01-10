@@ -73,9 +73,10 @@
                                                     if (error) {
                                                         [FacebookManager handleFacebookError:error];
                                                         return;
+                                                    } else if (FB_ISSESSIONOPENWITHSTATE(status)) {
+                                                        success();
                                                     }
-                                                    
-                                                    success();
+
                                                 }];
     }
     else
@@ -98,9 +99,9 @@
                                           if (error) {
                                               [FacebookManager handleFacebookError:error];
                                               return;
+                                          } else if (FB_ISSESSIONOPENWITHSTATE(status)) {
+                                              success();
                                           }
-                                          
-                                          success();
                                       }];
     }
 }
