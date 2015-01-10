@@ -81,15 +81,20 @@
     }
     else
     {
-        [FBSession openActiveSessionWithPublishPermissions:permissions defaultAudience:FBSessionDefaultAudienceFriends allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-            if (error) {
-                [FacebookManager handleFacebookError:error];
-                return;
-            }
-            
-            success();
+		//authorize
+        [FBSession openActiveSessionWithPublishPermissions:permissions
+                                           defaultAudience:FBSessionDefaultAudienceFriends
+                                              allowLoginUI:YES
+                                         completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                             if (error) {
+                                                 [FacebookManager handleFacebookError:error];
+                                                 return;
+                                             } else if (FB_ISSESSIONOPENWITHSTATE(state)) {
+                                                 success();
+                                             }
         }];
-        return;
+
+		/*
         //authorize
         [FBSession openActiveSessionWithReadPermissions:permissions
                                            allowLoginUI:YES
@@ -103,6 +108,7 @@
                                               success();
                                           }
                                       }];
+	   */
     }
 }
 
