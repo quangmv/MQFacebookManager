@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
     }
     s.source_files      	= 'Classes/*.{m,h}'
     s.requires_arc      	= true
-	s.dependency 'Facebook-iOS-SDK', '~> 3.22'
+	s.dependency 'Facebook-iOS-SDK'
 end
