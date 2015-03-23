@@ -46,7 +46,9 @@
     {
         //not set
         if (!permissions) {
-            success();
+            if (success) {
+                success();
+            }
             return;
         }
         
@@ -61,7 +63,9 @@
         
         //not has new
         if ([newPermissions count] == 0) {
-            success();
+            if (success) {
+                success();
+            }
             return;
         }
         
@@ -73,8 +77,10 @@
                                                     if (error) {
                                                         [FacebookManager handleFacebookError:error];
                                                         return;
-                                                    } else if (FB_ISSESSIONOPENWITHSTATE([FBSession.activeSession state])) {
-                                                        success();
+                                                    } else if ([FBSession.activeSession state] == FBSessionStateOpen) {
+                                                        if (success) {
+                                                            success();
+                                                        }
                                                     }
 
                                                 }];
@@ -89,8 +95,10 @@
                                              if (error) {
                                                  [FacebookManager handleFacebookError:error];
                                                  return;
-                                             } else if (FB_ISSESSIONOPENWITHSTATE(status)) {
-                                                 success();
+                                             } else if ([FBSession.activeSession state] == FBSessionStateOpen) {
+                                                 if (success) {
+                                                     success();
+                                                 }
                                              }
         }];
 
@@ -174,7 +182,9 @@
                 [FacebookManager handleFacebookError:error];
                 return;
             }
-            success(result);
+            if (success) {
+                success(result);
+            }
         }];
     }];
 }

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FacebookManager.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ViewController ()
 
@@ -17,12 +18,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[FBSession activeSession] closeAndClearTokenInformation];
+    NSLog(@"%@",[[FBSession activeSession] permissions]);
 }
 
 - (IBAction)meButtonTapped:(id)sender {
     [FacebookManager requestForMeSuccess:^(id result) {
         NSLog(@"%@",result);
     }];
+}
+- (IBAction)postStatus:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"Updating status at %@", [NSDate date]];
+    [FacebookManager shareMessage:message link:nil];
 }
 
 - (void)didReceiveMemoryWarning {
